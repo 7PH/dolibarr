@@ -208,6 +208,9 @@ if (! empty($reg[1]) && $reg[1] == 'explorer' && ($reg[2] == '/swagger.json' || 
 // Call one APIs or one definition of an API
 if (! empty($reg[1]) && ($reg[1] != 'explorer' || ($reg[2] != '/swagger.json' && $reg[2] != '/resources.json' && preg_match('/^\/(swagger|resources)\.json\/(.+)$/', $reg[2], $regbis) && $regbis[2] != 'root')))
 {
+    $reg[1] = explode("?", $reg[1]);
+    $reg[1] = $reg[1][0];
+
     $module = $reg[1];
     if ($module == 'explorer')  // If we call page to explore details of a service
     {

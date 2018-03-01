@@ -70,7 +70,7 @@ if (empty($conf->global->MAIN_MODULE_API))
 }
 
 // Test if explorer is not disabled
-if (preg_match('/api\/index\.php\/explorer/', $_SERVER["PHP_SELF"]) && ! empty($conf->global->API_EXPLORER_DISABLED))
+if (preg_match('/api\/index\.php\/explorer/', $_SERVER["REQUEST_URI"]) && ! empty($conf->global->API_EXPLORER_DISABLED))
 {
     $langs->load("admin");
     dol_syslog("Call Dolibarr API interfaces with module REST disabled");
@@ -93,7 +93,7 @@ if (preg_match('/api\/index\.php\/explorer/', $_SERVER["PHP_SELF"]) && ! empty($
 // index.php/xxx                                called by any REST client to run API
 
 
-preg_match('/index\.php\/([^\/]+)(.*)$/', $_SERVER["PHP_SELF"], $reg);
+preg_match('/index\.php\/([^\/]+)(.*)$/', $_SERVER["REQUEST_URI"], $reg);
 // .../index.php/categories?sortfield=t.rowid&sortorder=ASC
 
 

@@ -31,10 +31,8 @@ require_once DOL_DOCUMENT_ROOT . '/don/class/don.class.php';
 require_once DOL_DOCUMENT_ROOT . '/core/class/doleditor.class.php';
 if (! empty($conf->accounting->enabled)) require_once DOL_DOCUMENT_ROOT . '/core/class/html.formaccounting.class.php';
 
-$langs->load("admin");
-$langs->load("donations");
-$langs->load("accountancy");
-$langs->load('other');
+// Load translation files required by the page
+$langs->loadLangs(array('admin', 'donations', 'accountancy', 'other'));
 
 if (!$user->admin) accessforbidden();
 
@@ -209,7 +207,7 @@ print load_fiche_titre($langs->trans("DonationsSetup"),$linkback,'title_setup');
 
 $head = donation_admin_prepare_head();
 
-dol_fiche_head($head, 'general', $langs->trans("Donations"), 0, 'payment');
+dol_fiche_head($head, 'general', $langs->trans("Donations"), -1, 'payment');
 
 
 // Document templates

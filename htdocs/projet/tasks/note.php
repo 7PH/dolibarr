@@ -26,6 +26,7 @@ require_once DOL_DOCUMENT_ROOT.'/projet/class/project.class.php';
 require_once DOL_DOCUMENT_ROOT.'/projet/class/task.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/project.lib.php';
 
+// Load translation files required by the page
 $langs->load('projects');
 
 $action=GETPOST('action','alpha');
@@ -202,7 +203,7 @@ if ($object->id > 0)
 	}
 
 	$head = task_prepare_head($object);
-	dol_fiche_head($head, 'task_notes', $langs->trans('Task'), -1, 'projecttask');
+	dol_fiche_head($head, 'task_notes', $langs->trans('Task'), -1, 'projecttask', 0, '', 'reposition');
 
 
 	$param=(GETPOST('withproject')?'&withproject=1':'');
